@@ -13,9 +13,9 @@ struct EditorPlugin : StudioApp::GUIPlugin {
 
 	void onGUI() override {
 		ImGui::SetNextWindowSize(ImVec2(200, 200), ImGuiCond_FirstUseEver);
-		if (ImGui::Begin("My plugin")) {
+		if (ImGui::Begin("Project generator (Online)")) {
 			ImGui::TextUnformatted("Hello world");
-			ImGui::DragFloat("Some value", &m_some_value);
+			
 		}
 		ImGui::End();
 	}
@@ -23,7 +23,8 @@ struct EditorPlugin : StudioApp::GUIPlugin {
 	const char* getName() const override { return "projectgen"; }
 
 	StudioApp& m_app;
-	float m_some_value = 0;
+	bool m_checked_projecttype = false;
+	string m_project_path;
 };
 
 
